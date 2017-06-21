@@ -1,9 +1,16 @@
-﻿namespace BaseModels
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace BaseModels
 {
-    class Venda
+   public class Venda
     {
+        [Key]
         public int VendaID { get; set; }
 
+        [Required]
+        public string FormaPag { get; set; }
 
+        public ICollection<Produto> Itens { get; set; }
     }
 }
