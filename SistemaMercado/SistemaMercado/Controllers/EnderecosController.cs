@@ -6,37 +6,36 @@ using System.Web.Mvc;
 
 namespace SistemaMercado.Controllers
 {
-    public class CategoriasController : Controller
+    public class EnderecosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Categorias
+        // GET: Enderecos
         public ActionResult Index()
         {
             return View();
         }
+
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Endereco endereco = db.Enderecos.Find(id);
+            if (endereco == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(endereco);
         }
 
-        // GET: Categorias/Create
+        // GET: Endereçis/Adicionar
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categorias/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Endereços/Adicionar
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
@@ -59,50 +58,50 @@ namespace SistemaMercado.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Endereco endereco = db.Enderecos.Find(id);
+            if (endereco == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(endereco);
         }
 
         // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoriaID,Nome,Descricao,Ativo")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "EnderecoID,Rua,Numero,Bairro,Cidade,Estado,Cep")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categoria).State = EntityState.Modified;
+                db.Entry(endereco).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(categoria);
+            return View(endereco);
         }
 
-        // GET: Categorias/Delete/
+        // GET: Endereços/Excluir/
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Endereco endereco = db.Enderecos.Find(id);
+            if (endereco == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(endereco);
         }
 
-        // POST: Categorias/Delete/
+        // POST: Endereços/Excluir/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categoria categoria = db.Categorias.Find(id);
-            db.Categorias.Remove(categoria);
+            Endereco endereco = db.Enderecos.Find(id);
+            db.Enderecos.Remove(endereco);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

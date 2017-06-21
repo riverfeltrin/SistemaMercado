@@ -1,5 +1,4 @@
-﻿using System.Data.Entity;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -29,5 +28,13 @@ namespace SistemaMercado.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BaseModels.Produto> Produtos { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Categoria> Categorias { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Cliente> Clientes { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Endereco> Enderecos { get; set; }
     }
 }

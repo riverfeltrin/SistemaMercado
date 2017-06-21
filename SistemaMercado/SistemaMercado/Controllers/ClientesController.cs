@@ -1,108 +1,109 @@
-﻿using BaseModels;
-using SistemaMercado.Models;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using BaseModels;
+using SistemaMercado.Models;
 
 namespace SistemaMercado.Controllers
 {
-    public class CategoriasController : Controller
+    public class ClientesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-        // GET: Categorias
+
+        // GET: Clientes
         public ActionResult Index()
         {
-            return View();
+            return View(db.Clientes.ToList());
         }
+
+        // GET: Clientes/Details/
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(cliente);
         }
 
-        // GET: Categorias/Create
+        // GET: Clientes/Cadastrar
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categorias/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Clientes/Cadastrar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
+        public ActionResult Create([Bind(Include = "ClienteID,Nome,CPF,Email,Senha")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                categoria.Ativo = true;
-                db.Categorias.Add(categoria);
+                db.Clientes.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(categoria);
+            return View(cliente);
         }
 
-        // GET
+        // GET: Clientes/Editar/
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(cliente);
         }
 
-        // POST
+        // POST: Clientes/Editar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoriaID,Nome,Descricao,Ativo")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "ClienteID,Nome,CPF,Email,Senha")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(categoria).State = EntityState.Modified;
+                db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(categoria);
+            return View(cliente);
         }
 
-        // GET: Categorias/Delete/
+        // GET: Clientes/Deletar/
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
-            if (categoria == null)
+            Cliente cliente = db.Clientes.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(categoria);
+            return View(cliente);
         }
 
-        // POST: Categorias/Delete/
+        // POST: Clientes/Deletar/
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categoria categoria = db.Categorias.Find(id);
-            db.Categorias.Remove(categoria);
+            Cliente cliente = db.Clientes.Find(id);
+            db.Clientes.Remove(cliente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
