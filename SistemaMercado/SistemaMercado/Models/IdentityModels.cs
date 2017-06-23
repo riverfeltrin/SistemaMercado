@@ -36,5 +36,7 @@ namespace SistemaMercado.Models
         public System.Data.Entity.DbSet<BaseModels.Cliente> Clientes { get; set; }
 
         public System.Data.Entity.DbSet<BaseModels.Endereco> Enderecos { get; set; }
+
+        public System.Data.Entity.DbSet<BaseModels.Venda> Vendas { get; set; }
     }
 }
