@@ -15,6 +15,5 @@ namespace BaseModels
 
         public virtual Cliente _Cliente { get; set; }
 
-        public virtual Endereco _Endereco { get; set; }
     }
 }

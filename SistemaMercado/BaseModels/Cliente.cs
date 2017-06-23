@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace BaseModels
 {
@@ -21,5 +22,8 @@ namespace BaseModels
         [Required]
         [DataType(DataType.Password)]
         public string Senha { get; set; }
+
+        [Required]
+        public int EnderecoID{ get; set; }
     }
 }
