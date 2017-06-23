@@ -15,14 +15,14 @@ namespace SistemaMercado.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Sobre a nossa empresa.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Entre em contato conosco pelas formas abaixo.";
 
             return View();
         }
