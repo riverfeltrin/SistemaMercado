@@ -23,6 +23,7 @@ namespace BaseModels
         [Required]
         public int Quantidade { get; set; }
 
+        [Display(Name ="Categoria")]
         public int CategoriaID { get; set; }
 
         [Display(Name ="Categoria")]

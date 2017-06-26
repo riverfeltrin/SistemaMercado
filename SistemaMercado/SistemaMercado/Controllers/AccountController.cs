@@ -81,7 +81,7 @@ namespace SistemaMercado.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Produtos");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -158,14 +158,18 @@ namespace SistemaMercado.Controllers
 
                 if (result.Succeeded)
                 {
-                    // Salvar cliente
-                  /*  Cliente cli = new Cliente()
+                    //Salvar cliente
+                    Cliente cli = new Cliente()
                     {
-                        
+                        Nome = model.Nome,
+                        Email = model.Email,
+                        CPF = model.CPF,
+
+
 
                     };
                     db.Clientes.Add(cli);
-                    db.SaveChanges();*/
+                    db.SaveChanges();
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
