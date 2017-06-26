@@ -159,13 +159,13 @@ namespace SistemaMercado.Controllers
                 if (result.Succeeded)
                 {
                     // Salvar cliente
-                    Cliente cli = new Cliente()
+                  /*  Cliente cli = new Cliente()
                     {
-                        Email = model.Email
+                        
 
                     };
                     db.Clientes.Add(cli);
-                    db.SaveChanges();
+                    db.SaveChanges();*/
 
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
