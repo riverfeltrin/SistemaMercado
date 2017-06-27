@@ -30,6 +30,7 @@ namespace BaseModels
         public virtual Categoria _Categoria { get; set; }
 
         [Required]
+        [Display(Name ="Estoque")]
         public bool Ativo{ get; set; }
     }
 }
