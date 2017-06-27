@@ -19,15 +19,6 @@ namespace BaseModels
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required(ErrorMessage ="Senha Invalida !!")]
-        [DataType(DataType.Password)]
-        public string Senha { get; set; }
-
-        [DataType(DataType.Password)]
-        [Display(Name = "Confirmar Senha")]
-        [Compare("Senha", ErrorMessage = "As duas senhas precisam ser iguais!")]
-        public string ConfirmPassword { get; set; }
-
         [Required]
         public int EnderecoID{ get; set; }
 
