@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseModels
 {
@@ -19,7 +20,6 @@ namespace BaseModels
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
         public int EnderecoID{ get; set; }
 
         public virtual Endereco _Endereco { get; set; }

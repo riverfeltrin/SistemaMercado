@@ -10,6 +10,7 @@ using BaseModels;
 
 namespace SistemaMercado.Controllers
 {
+
     [Authorize]
     public class AccountController : Controller
     {
@@ -155,12 +156,26 @@ namespace SistemaMercado.Controllers
 
                 if (result.Succeeded)
                 {
+                    //Salvar endereço
+                    Endereco end = new Endereco()
+                    {
+                        Rua = model.Rua,
+                        Bairro = model.Bairro,
+                        Cidade = model.Cidade,
+                        Estado = model.Estado,
+                        Cep = model.Cep,
+                        Numero = model.Numero
+                    };
+                    db.Enderecos.Add(end);
+                    db.SaveChanges();
+
                     //Salvar cliente
                     Cliente cli = new Cliente()
                     {
                         Nome = model.Nome,
                         Email = model.Email,
                         CPF = model.CPF,
+                        EnderecoID = end.EnderecoID
                     };
                     db.Clientes.Add(cli);
                     db.SaveChanges();

@@ -25,7 +25,5 @@ namespace BaseModels
 
         [DataType(DataType.PostalCode)]
         public string Cep { get; set; }
-
-        public virtual Cliente _Cliente { get; set; }
     }
 }
