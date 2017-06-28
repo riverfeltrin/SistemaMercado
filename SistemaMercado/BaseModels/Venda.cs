@@ -11,7 +11,10 @@ namespace BaseModels
         [Required]
         public string FormaPag { get; set; }
 
-        public ICollection<Produto> Itens { get; set; }
+        public List<ItemVenda> Itens { get; set; }
+
+        [Display(Name = "Cliente")]
+        public int ClienteID { get; set; }
 
         public virtual Cliente _Cliente { get; set; }
 
