@@ -102,7 +102,7 @@ namespace SistemaMercado.Models
         public string Email { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 4)]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }
@@ -127,7 +127,7 @@ namespace SistemaMercado.Models
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "Confirmar senha")]
         [Compare("Password", ErrorMessage = "As duas senhas precisam ser iguais!")]
         public string ConfirmPassword { get; set; }
 
