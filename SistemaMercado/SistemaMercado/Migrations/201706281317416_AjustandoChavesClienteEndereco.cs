@@ -3,7 +3,7 @@ namespace SistemaMercado.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class AjustandoChavesClienteEndereco : DbMigration
     {
         public override void Up()
         {
@@ -25,10 +25,11 @@ namespace SistemaMercado.Migrations
                         Nome = c.String(nullable: false),
                         CPF = c.String(nullable: false),
                         Email = c.String(nullable: false),
-                        Senha = c.String(nullable: false),
                         EnderecoID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.ClienteID);
+                .PrimaryKey(t => t.ClienteID)
+                .ForeignKey("dbo.Enderecoes", t => t.EnderecoID, cascadeDelete: true)
+                .Index(t => t.EnderecoID);
             
             CreateTable(
                 "dbo.Enderecoes",
@@ -102,9 +103,12 @@ namespace SistemaMercado.Migrations
                         LockoutEnabled = c.Boolean(nullable: false),
                         AccessFailedCount = c.Int(nullable: false),
                         UserName = c.String(nullable: false, maxLength: 256),
+                        _Cliente_ClienteID = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .Index(t => t.UserName, unique: true, name: "UserNameIndex");
+                .ForeignKey("dbo.Clientes", t => t._Cliente_ClienteID)
+                .Index(t => t.UserName, unique: true, name: "UserNameIndex")
+                .Index(t => t._Cliente_ClienteID);
             
             CreateTable(
                 "dbo.AspNetUserClaims",
@@ -152,17 +156,21 @@ namespace SistemaMercado.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.AspNetUsers", "_Cliente_ClienteID", "dbo.Clientes");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Produtoes", "CategoriaID", "dbo.Categorias");
+            DropForeignKey("dbo.Clientes", "EnderecoID", "dbo.Enderecoes");
             DropIndex("dbo.Vendas", new[] { "_Cliente_ClienteID" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
+            DropIndex("dbo.AspNetUsers", new[] { "_Cliente_ClienteID" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.Produtoes", new[] { "Venda_VendaID" });
             DropIndex("dbo.Produtoes", new[] { "CategoriaID" });
+            DropIndex("dbo.Clientes", new[] { "EnderecoID" });
             DropTable("dbo.Vendas");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");

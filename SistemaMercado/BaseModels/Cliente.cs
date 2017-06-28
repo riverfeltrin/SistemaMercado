@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseModels
 {
-   public class Cliente
+    public class Cliente
     {
         [Key]
         public int ClienteID { get; set; }
@@ -20,8 +20,12 @@ namespace BaseModels
         [EmailAddress]
         public string Email { get; set; }
 
-        public int EnderecoID{ get; set; }
+        [ForeignKey("_Endereco")]
+        public int EnderecoID { get; set; }
 
         public virtual Endereco _Endereco { get; set; }
+
+
+
     }
 }

@@ -10,7 +10,6 @@ namespace SistemaMercado.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "SistemaMercado.Models.ApplicationDbContext";
         }
 
         protected override void Seed(SistemaMercado.Models.ApplicationDbContext context)

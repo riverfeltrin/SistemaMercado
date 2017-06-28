@@ -206,21 +206,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706261118369_InitialCreate.cs" />
-    <Compile Include="Migrations\201706261118369_InitialCreate.Designer.cs">
-      <DependentUpon>201706261118369_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706261221180_NewMigration.cs" />
-    <Compile Include="Migrations\201706261221180_NewMigration.Designer.cs">
-      <DependentUpon>201706261221180_NewMigration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706261318056_Alteracao de tabelas.cs" />
-    <Compile Include="Migrations\201706261318056_Alteracao de tabelas.Designer.cs">
-      <DependentUpon>201706261318056_Alteracao de tabelas.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706271233557_New banco.cs" />
-    <Compile Include="Migrations\201706271233557_New banco.Designer.cs">
-      <DependentUpon>201706271233557_New banco.cs</DependentUpon>
+    <Compile Include="Migrations\201706281317416_AjustandoChavesClienteEndereco.cs" />
+    <Compile Include="Migrations\201706281317416_AjustandoChavesClienteEndereco.Designer.cs">
+      <DependentUpon>201706281317416_AjustandoChavesClienteEndereco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -331,17 +319,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706261118369_InitialCreate.resx">
-      <DependentUpon>201706261118369_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706261221180_NewMigration.resx">
-      <DependentUpon>201706261221180_NewMigration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706261318056_Alteracao de tabelas.resx">
-      <DependentUpon>201706261318056_Alteracao de tabelas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706271233557_New banco.resx">
-      <DependentUpon>201706271233557_New banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706281317416_AjustandoChavesClienteEndereco.resx">
+      <DependentUpon>201706281317416_AjustandoChavesClienteEndereco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

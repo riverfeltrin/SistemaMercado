@@ -23,7 +23,9 @@ namespace BaseModels
         [Required]
         public string Estado { get; set; }
 
-        [DataType(DataType.PostalCode)]
+        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString ="##.###-###")]
         public string Cep { get; set; }
+
+      
     }
 }
