@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseModels
 {
@@ -17,6 +18,7 @@ namespace BaseModels
         public int ClienteID { get; set; }
 
         public virtual Cliente _Cliente { get; set; }
+
 
     }
 }

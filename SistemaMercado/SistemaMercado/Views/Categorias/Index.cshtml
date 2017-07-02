@@ -1,12 +1,14 @@
 ﻿@model IEnumerable<BaseModels.Categoria>
 
 @{
-    ViewBag.Title = "Lista de Categorias";
+    ViewBag.Title = "Index";
 }
 
-<h2>Lista de Categorias</h2>
+<h2>Index</h2>
 
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -26,17 +28,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Ativo)
         </td>
-       <td>
-        @Html.ActionLink("Editar", "Edit", new { id=item.CategoriaID }) |
-        @Html.ActionLink("Detalhes", "Details", new { id=item.CategoriaID }) |
-        @Html.ActionLink("Exlcluir", "Delete", new { id=item.CategoriaID })
-      </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoriaID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategoriaID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoriaID })
+        </td>
     </tr>
-
-    
 }
 
 </table>
-<p>
-    @Html.ActionLink("Criar nova Categoria", "Create")
-</p>

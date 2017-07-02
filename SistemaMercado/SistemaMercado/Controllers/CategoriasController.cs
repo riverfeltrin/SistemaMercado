@@ -1,6 +1,10 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Web;
 using System.Web.Mvc;
 using BaseModels;
 using SistemaMercado.Models;
@@ -17,7 +21,7 @@ namespace SistemaMercado.Controllers
             return View(db.Categorias.ToList());
         }
 
-        // GET: Categorias/Detalhes/
+        // GET: Categorias/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -32,13 +36,15 @@ namespace SistemaMercado.Controllers
             return View(categoria);
         }
 
-        // GET: Categorias/Cadastrar
+        // GET: Categorias/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Categorias/Cadastrar
+        // POST: Categorias/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
@@ -53,7 +59,7 @@ namespace SistemaMercado.Controllers
             return View(categoria);
         }
 
-        // GET: Categorias/Editar/
+        // GET: Categorias/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -68,7 +74,9 @@ namespace SistemaMercado.Controllers
             return View(categoria);
         }
 
-        // POST: Categorias/Editar/
+        // POST: Categorias/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
@@ -82,7 +90,7 @@ namespace SistemaMercado.Controllers
             return View(categoria);
         }
 
-        // GET: Categorias/Deletar/
+        // GET: Categorias/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -97,7 +105,7 @@ namespace SistemaMercado.Controllers
             return View(categoria);
         }
 
-        // POST: Categorias/Deletar/
+        // POST: Categorias/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

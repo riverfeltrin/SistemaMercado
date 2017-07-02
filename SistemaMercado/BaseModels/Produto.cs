@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaseModels
 {
@@ -30,7 +31,7 @@ namespace BaseModels
         public virtual Categoria _Categoria { get; set; }
 
         [Required]
-        [Display(Name ="Estoque")]
-        public bool Ativo{ get; set; }
+        [Display(Name = "Estoque")]
+        public bool Ativo { get; set; }
     }
 }
