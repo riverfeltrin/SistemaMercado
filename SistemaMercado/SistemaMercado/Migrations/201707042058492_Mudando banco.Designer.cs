@@ -7,13 +7,13 @@ namespace SistemaMercado.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AjustandoChavesClienteEndereco : IMigrationMetadata
+    public sealed partial class Mudandobanco : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AjustandoChavesClienteEndereco));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Mudandobanco));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706281317416_AjustandoChavesClienteEndereco"; }
+            get { return "201707042058492_Mudando banco"; }
         }
         
         string IMigrationMetadata.Source

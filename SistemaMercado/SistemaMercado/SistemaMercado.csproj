@@ -206,13 +206,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706281317416_AjustandoChavesClienteEndereco.cs" />
-    <Compile Include="Migrations\201706281317416_AjustandoChavesClienteEndereco.Designer.cs">
-      <DependentUpon>201706281317416_AjustandoChavesClienteEndereco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201707020246511_Mudando banco.cs" />
-    <Compile Include="Migrations\201707020246511_Mudando banco.Designer.cs">
-      <DependentUpon>201707020246511_Mudando banco.cs</DependentUpon>
+    <Compile Include="Migrations\201707042058492_Mudando banco.cs" />
+    <Compile Include="Migrations\201707042058492_Mudando banco.Designer.cs">
+      <DependentUpon>201707042058492_Mudando banco.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -304,6 +300,7 @@
     <Content Include="Views\Vendas\Details.cshtml" />
     <Content Include="Views\Vendas\Edit.cshtml" />
     <Content Include="Views\Vendas\Index.cshtml" />
+    <Content Include="Views\ProdutosCli\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -323,11 +320,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706281317416_AjustandoChavesClienteEndereco.resx">
-      <DependentUpon>201706281317416_AjustandoChavesClienteEndereco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201707020246511_Mudando banco.resx">
-      <DependentUpon>201707020246511_Mudando banco.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201707042058492_Mudando banco.resx">
+      <DependentUpon>201707042058492_Mudando banco.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

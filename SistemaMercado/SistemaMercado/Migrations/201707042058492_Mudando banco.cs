@@ -3,7 +3,7 @@ namespace SistemaMercado.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AjustandoChavesClienteEndereco : DbMigration
+    public partial class Mudandobanco : DbMigration
     {
         public override void Up()
         {
@@ -56,13 +56,10 @@ namespace SistemaMercado.Migrations
                         Quantidade = c.Int(nullable: false),
                         CategoriaID = c.Int(nullable: false),
                         Ativo = c.Boolean(nullable: false),
-                        Venda_VendaID = c.Int(),
                     })
                 .PrimaryKey(t => t.ProdutoID)
                 .ForeignKey("dbo.Categorias", t => t.CategoriaID, cascadeDelete: true)
-                .ForeignKey("dbo.Vendas", t => t.Venda_VendaID)
-                .Index(t => t.CategoriaID)
-                .Index(t => t.Venda_VendaID);
+                .Index(t => t.CategoriaID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -141,18 +138,34 @@ namespace SistemaMercado.Migrations
                     {
                         VendaID = c.Int(nullable: false, identity: true),
                         FormaPag = c.String(nullable: false),
-                        _Cliente_ClienteID = c.Int(),
+                        ClienteID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.VendaID)
-                .ForeignKey("dbo.Clientes", t => t._Cliente_ClienteID)
-                .Index(t => t._Cliente_ClienteID);
+                .ForeignKey("dbo.Clientes", t => t.ClienteID, cascadeDelete: true)
+                .Index(t => t.ClienteID);
+            
+            CreateTable(
+                "dbo.ItemVendas",
+                c => new
+                    {
+                        ItemVendaID = c.Int(nullable: false, identity: true),
+                        Quantidade = c.Int(nullable: false),
+                        Produto_ProdutoID = c.Int(),
+                        Venda_VendaID = c.Int(),
+                    })
+                .PrimaryKey(t => t.ItemVendaID)
+                .ForeignKey("dbo.Produtoes", t => t.Produto_ProdutoID)
+                .ForeignKey("dbo.Vendas", t => t.Venda_VendaID)
+                .Index(t => t.Produto_ProdutoID)
+                .Index(t => t.Venda_VendaID);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Produtoes", "Venda_VendaID", "dbo.Vendas");
-            DropForeignKey("dbo.Vendas", "_Cliente_ClienteID", "dbo.Clientes");
+            DropForeignKey("dbo.ItemVendas", "Venda_VendaID", "dbo.Vendas");
+            DropForeignKey("dbo.ItemVendas", "Produto_ProdutoID", "dbo.Produtoes");
+            DropForeignKey("dbo.Vendas", "ClienteID", "dbo.Clientes");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
@@ -160,7 +173,9 @@ namespace SistemaMercado.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Produtoes", "CategoriaID", "dbo.Categorias");
             DropForeignKey("dbo.Clientes", "EnderecoID", "dbo.Enderecoes");
-            DropIndex("dbo.Vendas", new[] { "_Cliente_ClienteID" });
+            DropIndex("dbo.ItemVendas", new[] { "Venda_VendaID" });
+            DropIndex("dbo.ItemVendas", new[] { "Produto_ProdutoID" });
+            DropIndex("dbo.Vendas", new[] { "ClienteID" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", new[] { "_Cliente_ClienteID" });
@@ -168,9 +183,9 @@ namespace SistemaMercado.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Produtoes", new[] { "Venda_VendaID" });
             DropIndex("dbo.Produtoes", new[] { "CategoriaID" });
             DropIndex("dbo.Clientes", new[] { "EnderecoID" });
+            DropTable("dbo.ItemVendas");
             DropTable("dbo.Vendas");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
