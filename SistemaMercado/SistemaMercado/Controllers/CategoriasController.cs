@@ -28,7 +28,7 @@ namespace SistemaMercado.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
+            Categorias categoria = db.Categorias.Find(id);
             if (categoria == null)
             {
                 return HttpNotFound();
@@ -47,7 +47,7 @@ namespace SistemaMercado.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
+        public ActionResult Create([Bind(Include = "CategoriaID,Nome,Ativo")] Categorias categoria)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace SistemaMercado.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
+            Categorias categoria = db.Categorias.Find(id);
             if (categoria == null)
             {
                 return HttpNotFound();
@@ -79,7 +79,7 @@ namespace SistemaMercado.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoriaID,Nome,Ativo")] Categoria categoria)
+        public ActionResult Edit([Bind(Include = "CategoriaID,Nome,Ativo")] Categorias categoria)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace SistemaMercado.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Categoria categoria = db.Categorias.Find(id);
+            Categorias categoria = db.Categorias.Find(id);
             if (categoria == null)
             {
                 return HttpNotFound();
@@ -110,7 +110,7 @@ namespace SistemaMercado.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Categoria categoria = db.Categorias.Find(id);
+            Categorias categoria = db.Categorias.Find(id);
             db.Categorias.Remove(categoria);
             db.SaveChanges();
             return RedirectToAction("Index");

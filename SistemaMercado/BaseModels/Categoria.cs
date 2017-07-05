@@ -2,7 +2,7 @@
 
 namespace BaseModels
 {
-    public class Categoria
+    public class Categorias
     {
         [Key]
         public int CategoriaID { get; set; }

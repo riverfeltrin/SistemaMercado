@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201707042339197_mudando tabelas.Designer.cs">
       <DependentUpon>201707042339197_mudando tabelas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707050020068_Alterar.cs" />
+    <Compile Include="Migrations\201707050020068_Alterar.Designer.cs">
+      <DependentUpon>201707050020068_Alterar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -304,8 +308,16 @@
     <Content Include="Views\Vendas\Details.cshtml" />
     <Content Include="Views\Vendas\Edit.cshtml" />
     <Content Include="Views\Vendas\Index.cshtml" />
-    <Content Include="Views\Produto\Index.cshtml" />
-    <Content Include="Views\Produto\Create.cshtml" />
+    <Content Include="Views\CategoriasClis\Create.cshtml" />
+    <Content Include="Views\CategoriasClis\Delete.cshtml" />
+    <Content Include="Views\CategoriasClis\Details.cshtml" />
+    <Content Include="Views\CategoriasClis\Edit.cshtml" />
+    <Content Include="Views\CategoriasClis\Index.cshtml" />
+    <Content Include="Views\CategoriasClies\Create.cshtml" />
+    <Content Include="Views\CategoriasClies\Delete.cshtml" />
+    <Content Include="Views\CategoriasClies\Details.cshtml" />
+    <Content Include="Views\CategoriasClies\Edit.cshtml" />
+    <Content Include="Views\CategoriasClies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707042339197_mudando tabelas.resx">
       <DependentUpon>201707042339197_mudando tabelas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707050020068_Alterar.resx">
+      <DependentUpon>201707050020068_Alterar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
