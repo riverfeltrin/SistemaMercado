@@ -232,6 +232,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Imagem\Capturar1.PNG" />
+    <Content Include="Imagem\mercearia2.PNG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -308,16 +310,8 @@
     <Content Include="Views\Vendas\Details.cshtml" />
     <Content Include="Views\Vendas\Edit.cshtml" />
     <Content Include="Views\Vendas\Index.cshtml" />
-    <Content Include="Views\CategoriasClis\Create.cshtml" />
-    <Content Include="Views\CategoriasClis\Delete.cshtml" />
-    <Content Include="Views\CategoriasClis\Details.cshtml" />
-    <Content Include="Views\CategoriasClis\Edit.cshtml" />
-    <Content Include="Views\CategoriasClis\Index.cshtml" />
-    <Content Include="Views\CategoriasClies\Create.cshtml" />
-    <Content Include="Views\CategoriasClies\Delete.cshtml" />
-    <Content Include="Views\CategoriasClies\Details.cshtml" />
-    <Content Include="Views\CategoriasClies\Edit.cshtml" />
-    <Content Include="Views\CategoriasClies\Index.cshtml" />
+    <Content Include="Views\Produtos\Estoque.cshtml" />
+    <Content Include="Views\Categorias\CategoriaCliente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

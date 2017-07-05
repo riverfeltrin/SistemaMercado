@@ -22,6 +22,11 @@ namespace SistemaMercado.Controllers
             return View(produtos.ToList());
         }
 
+        public ActionResult Estoque()
+        {
+            var produtos = db.Produtos.Include(p => p._Categoria);
+            return View(produtos.ToList());
+        }
         // GET: Produtos/Details/5
         public ActionResult Details(int? id)
         {

@@ -35,7 +35,7 @@ namespace SistemaMercado.Models
 
         public System.Data.Entity.DbSet<BaseModels.Produto> Produtos { get; set; }
 
-        public System.Data.Entity.DbSet<BaseModels.Categorias> Categorias { get; set; }
+        public System.Data.Entity.DbSet<BaseModels.Categoria> Categorias { get; set; }
 
         public System.Data.Entity.DbSet<BaseModels.Cliente> Clientes { get; set; }
 
@@ -43,6 +43,5 @@ namespace SistemaMercado.Models
 
         public System.Data.Entity.DbSet<BaseModels.Venda> Vendas { get; set; }
 
-        public System.Data.Entity.DbSet<BaseModels.CategoriasCli> CategoriasClis { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace BaseModels
         public int CategoriaID { get; set; }
 
         [Display(Name ="Categoria")]
-        public virtual Categorias _Categoria { get; set; }
+        public virtual Categoria _Categoria { get; set; }
 
         [Required]
         [Display(Name = "Estoque")]
