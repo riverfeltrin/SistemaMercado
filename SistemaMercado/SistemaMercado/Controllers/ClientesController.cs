@@ -41,7 +41,7 @@ namespace SistemaMercado.Controllers
         // POST: Clientes/Cadastrar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ClienteID,Nome,CPF,Email,Senha")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "ClienteID,Email,Senha")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace SistemaMercado.Controllers
         // POST: Clientes/Editar
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ClienteID,Nome,CPF,Email,Senha")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "ClienteID,Email,Senha")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {

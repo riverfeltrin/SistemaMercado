@@ -50,7 +50,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - E-commerce ParaTi</p>
+            <p>&copy; @DateTime.Now.Year - Mercearia ParaTi</p>
         </footer>
     </div>
 
@@ -59,3 +59,7 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+
+<div>
+    @Html.ActionLink("Administrador", "Login" , "Account")
+</div>

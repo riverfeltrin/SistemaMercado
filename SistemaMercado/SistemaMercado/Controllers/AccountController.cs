@@ -157,7 +157,7 @@ namespace SistemaMercado.Controllers
                 if (result.Succeeded)
                 {
                     //Salvar endereço
-                    Endereco end = new Endereco()
+                   /* Endereco end = new Endereco()
                     {
                         Rua = model.Rua,
                         Bairro = model.Bairro,
@@ -167,15 +167,16 @@ namespace SistemaMercado.Controllers
                         Numero = model.Numero
                     };
                     db.Enderecos.Add(end);
-                    db.SaveChanges();
+                    db.SaveChanges();*/
 
                     //Salvar cliente
                     Cliente cli = new Cliente()
                     {
                         Nome = model.Nome,
                         Email = model.Email,
-                        CPF = model.CPF,
-                        EnderecoID = end.EnderecoID
+                        
+                        
+                      
                     };
                     db.Clientes.Add(cli);
                     db.SaveChanges();
