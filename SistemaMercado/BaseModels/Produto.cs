@@ -18,7 +18,6 @@ namespace BaseModels
 
         [Required]
         [Display(Name ="Preço")]
-        [DataType(DataType.Currency)]
         public decimal Preco { get; set; }
 
         [Required]
